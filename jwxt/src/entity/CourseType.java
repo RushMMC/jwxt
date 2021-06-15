@@ -2,27 +2,26 @@ package entity;
 
 public class CourseType {
 
-		private  int	cty_no ;
-	
-		private  String	cty_name ;
+	private int ctyNo;
+	private String ctyName;
 
-		public int getCty_no() {
-			return cty_no;
-		}
+	public CourseType() {
+	}
 
-		public void setCty_no(int cty_no) {
-			this.cty_no = cty_no;
-		}
+	public int getCtyNo() {
+		return ctyNo;
+	}
 
-		public String getCty_name() {
-			return cty_name;
-		}
+	public void setCtyNo(int ctyNo) {
+		this.ctyNo = ctyNo;
+	}
 
-		public void setCty_name(String cty_name) {
-			this.cty_name = cty_name;
-		}	
+	public String getCtyName() {
+		return ctyName;
+	}
 
-	
-	
-	
+	public void setCtyName(String ctyName) {
+		this.ctyName = ctyName;
+	}
+
 }
