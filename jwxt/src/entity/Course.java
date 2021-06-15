@@ -1,7 +1,7 @@
 package entity;
 
 public class Course {
-
+//¿Î³ÌÊµÌå
 	private String	cour_no ;
 	private int	cty_no ;
 	private String	cour_name ;
