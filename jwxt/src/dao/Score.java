@@ -51,6 +51,7 @@ public class Score {
 //		}
 //		return phone;
 //	}
+	//
 
 	public int add(StudentScore stuS) {
 		Connection conn = null;
