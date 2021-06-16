@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import entity.Teach;
 import util.DBCPUtil;
 
-// 对shl_teach表的操作
+
 public class TeachDao {
 
 	public ArrayList<Teach> select(String where) {
