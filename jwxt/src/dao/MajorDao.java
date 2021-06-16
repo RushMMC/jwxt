@@ -14,4 +14,5 @@ public interface MajorDao {
 
 	boolean deleteMajorByMajNo(String no);
 
+	boolean updateMajor(Major major);
 }
