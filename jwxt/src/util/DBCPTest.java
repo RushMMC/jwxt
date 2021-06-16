@@ -1,4 +1,4 @@
-package dao;
+package util;
 //123465
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;

@@ -1,69 +1,76 @@
 package entity;
 
 public class StudentScore {
-	private int teamNo;
+	private Integer teamNo;
 	private String stuNo;
 	private String courNo;
-	private int scoPeacetime;
-	private int scoTeamEnd;
-	private double scoOverall;
+	private Integer scoPeacetime;
+	private Integer scoTeamEnd;
+	private Double scoOverall;
 	
 	
 	public StudentScore() {
-		super();
-		// TODO Auto-generated constructor stub
-	}
-	
-	public StudentScore(int teamNo, String stuNo, String courNo, int scoPeacetime, int scoTeamEnd, double scoOverall) {
-		super();
-		this.teamNo = teamNo;
-		this.stuNo = stuNo;
-		this.courNo = courNo;
-		this.scoPeacetime = scoPeacetime;
-		this.scoTeamEnd = scoTeamEnd;
-		this.scoOverall = scoOverall;
 	}
 
-	public int getTeamNo() {
+
+	public Integer getTeamNo() {
 		return teamNo;
 	}
-	public void setTeamNo(int teamNo) {
+
+
+	public void setTeamNo(Integer teamNo) {
 		this.teamNo = teamNo;
 	}
+
+
 	public String getStuNo() {
 		return stuNo;
 	}
+
+
 	public void setStuNo(String stuNo) {
 		this.stuNo = stuNo;
 	}
+
+
 	public String getCourNo() {
 		return courNo;
 	}
+
+
 	public void setCourNo(String courNo) {
 		this.courNo = courNo;
 	}
-	public int getScoPeacetime() {
+
+
+	public Integer getScoPeacetime() {
 		return scoPeacetime;
 	}
-	public void setScoPeacetime(int scoPeacetime) {
+
+
+	public void setScoPeacetime(Integer scoPeacetime) {
 		this.scoPeacetime = scoPeacetime;
 	}
-	public int getScoTeamEnd() {
+
+
+	public Integer getScoTeamEnd() {
 		return scoTeamEnd;
 	}
-	public void setScoTeamEnd(int scoTeamEnd) {
+
+
+	public void setScoTeamEnd(Integer scoTeamEnd) {
 		this.scoTeamEnd = scoTeamEnd;
 	}
-	public double getScoOverall() {
+
+
+	public Double getScoOverall() {
 		return scoOverall;
 	}
-	public void setScoOverall(double scoOverall) {
+
+
+	public void setScoOverall(Double scoOverall) {
 		this.scoOverall = scoOverall;
 	}
-	@Override
-	public String toString() {
-		return "StudentScore [teamNo=" + teamNo + ", stuNo=" + stuNo + ", courNo=" + courNo + ", scoPeacetime="
-				+ scoPeacetime + ", scoTeamEnd=" + scoTeamEnd + ", scoOverall=" + scoOverall + "]";
-	}
+	
 	
 }

@@ -2,17 +2,17 @@ package entity;
 
 public class CourseType {
 
-	private int ctyNo;
+	private Integer ctyNo;
 	private String ctyName;
 
 	public CourseType() {
 	}
 
-	public int getCtyNo() {
+	public Integer getCtyNo() {
 		return ctyNo;
 	}
 
-	public void setCtyNo(int ctyNo) {
+	public void setCtyNo(Integer ctyNo) {
 		this.ctyNo = ctyNo;
 	}
 
