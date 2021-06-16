@@ -4,12 +4,24 @@ public class Teach {
 	private String teaNo;
 	private Integer teamNo;
 	private String courNo;
-	private String calNo;
+	private String claNo;
 	private String teLessionTime;
 	private String teLessionaddr;
 	
 	
 	public Teach() {
+	}
+
+
+	public Teach(String teaNo, Integer teamNo, String courNo, String claNo, String teLessionTime,
+			String teLessionaddr) {
+		super();
+		this.teaNo = teaNo;
+		this.teamNo = teamNo;
+		this.courNo = courNo;
+		this.claNo = claNo;
+		this.teLessionTime = teLessionTime;
+		this.teLessionaddr = teLessionaddr;
 	}
 
 
@@ -43,13 +55,13 @@ public class Teach {
 	}
 
 
-	public String getCalNo() {
-		return calNo;
+	public String getClaNo() {
+		return claNo;
 	}
 
 
-	public void setCalNo(String calNo) {
-		this.calNo = calNo;
+	public void setClaNo(String claNo) {
+		this.claNo = claNo;
 	}
 
 
@@ -70,6 +82,13 @@ public class Teach {
 
 	public void setTeLessionaddr(String teLessionaddr) {
 		this.teLessionaddr = teLessionaddr;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Teach [teaNo=" + teaNo + ", teamNo=" + teamNo + ", courNo=" + courNo + ", claNo=" + claNo
+				+ ", teLessionTime=" + teLessionTime + ", teLessionaddr=" + teLessionaddr + "]";
 	}
 
 }
