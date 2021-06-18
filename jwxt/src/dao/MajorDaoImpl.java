@@ -39,7 +39,7 @@ public class MajorDaoImpl implements MajorDao {
 		List<Major> phonelist = null;
 		try {
 			conn = DBCPUtil.getConnection();
-			String sql = "select * from shl_major";
+			String sql = "select dept_no as deptNo,maj_no as majNo,maj_name as majName from shl_major";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			phonelist = new BeanListHandler<>(Major.class).handle(rs);
