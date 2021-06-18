@@ -60,4 +60,12 @@ public class DBCPUtil {
 		}
 		release(conn, pstmt);
 	}
+	public static void main(String[] args) {
+		try {
+			DBCPUtil.getConnection();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 }
