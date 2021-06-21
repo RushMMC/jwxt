@@ -13,6 +13,12 @@ import dao.DepartmentDao;
 import entity.Department;
 import util.DBCPUtil;
 
+/**
+ * 
+ * @author RushMMC
+ * @date 2021/06/21
+ *
+ */
 public class DepartmentDaoImpl implements DepartmentDao{
 
 	private Connection conn = null;
@@ -24,7 +30,7 @@ public class DepartmentDaoImpl implements DepartmentDao{
 		List<Department> classlist = null;
 		try {
 			conn = DBCPUtil.getConnection();
-			String sql = "select * from shl_dept";
+			String sql = "select dept_no as deptNo, dept_name as deptName from shl_dept";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			classlist = new BeanListHandler<>(Department.class).handle(rs);
@@ -41,7 +47,7 @@ public class DepartmentDaoImpl implements DepartmentDao{
 		Department dept = null;
 		try {
 			conn = DBCPUtil.getConnection();
-			String sql = "select * from shl_dept where dept_no=?";
+			String sql = "select dept_no as deptNo, dept_name as deptName from shl_dept where dept_no=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, no);
 			rs = pstmt.executeQuery();

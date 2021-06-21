@@ -13,6 +13,12 @@ import dao.ClassDao;
 import entity.Class;
 import util.DBCPUtil;
 
+/**
+ * 
+ * @author RushMMC
+ * @date 2021/06/21
+ *
+ */
 public class ClassDaoImpl implements ClassDao {
 	private Connection conn = null;
 	private PreparedStatement pstmt = null;
@@ -23,7 +29,8 @@ public class ClassDaoImpl implements ClassDao {
 		List<Class> classlist = null;
 		try {
 			conn = DBCPUtil.getConnection();
-			String sql = "select * from shl_class";
+			String sql = "select cla_no as claNo, cla_grade as claGrade, cla_name as claName, "
+					+ "cla_level as claLevel, cla_stype as claStyle, maj_no as majNo from shl_class";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			classlist = new BeanListHandler<>(Class.class).handle(rs);
@@ -77,7 +84,8 @@ public class ClassDaoImpl implements ClassDao {
 		Class cla = null;
 		try {
 			conn = DBCPUtil.getConnection();
-			String sql = "select * from shl_class where cla_no=?";
+			String sql = "select cla_no as claNo, cla_grade as claGrade, cla_name as claName, "
+					+ "cla_level as claLevel, cla_stype as claStyle, maj_no as majNo from shl_class where cla_no=?";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, no);
 			rs = pstmt.executeQuery();
