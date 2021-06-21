@@ -1,7 +1,8 @@
-package dao;
+package dao.impl;
 
 import java.util.List;
 
+import dao.TeamDao;
 import entity.Department;
 import entity.Team;
 

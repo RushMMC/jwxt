@@ -14,7 +14,7 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import dao.MajorDao;
-import dao.MajorDaoImpl;
+import dao.impl.MajorDaoImpl;
 import entity.Major;
 
 public class MajorManagerFrame extends JFrame {

@@ -1,4 +1,4 @@
-package dao;
+package dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+
+import dao.TeachDao;
 import entity.Teach;
 import util.DBCPUtil;
 

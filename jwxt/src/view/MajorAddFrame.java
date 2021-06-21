@@ -12,7 +12,7 @@ import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
 
 import dao.MajorDao;
-import dao.MajorDaoImpl;
+import dao.impl.MajorDaoImpl;
 import entity.Major;
 
 public class MajorAddFrame extends JFrame {
