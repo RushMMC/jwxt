@@ -14,11 +14,12 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 import dao.MajorDao;
-import dao.MajorDaoImpl;
+import dao.impl.MajorDaoImpl;
 import entity.Major;
 
 public class MajorManagerFrame extends JFrame {
 
+	private static final long serialVersionUID = -2192296360817457525L;
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTable table;
@@ -53,8 +54,8 @@ public class MajorManagerFrame extends JFrame {
 		contentPane.setLayout(null);
 		
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"专业编号"}));
+		JComboBox<String> comboBox = new JComboBox<>();
+		comboBox.setModel(new DefaultComboBoxModel<>(new String[] {"专业编号"}));
 		comboBox.setToolTipText("");
 		comboBox.setBounds(30, 23, 95, 23);
 		contentPane.add(comboBox);

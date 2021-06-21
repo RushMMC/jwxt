@@ -1,22 +1,22 @@
 package view;
 
-import java.awt.BorderLayout;
+import java.awt.CardLayout;
 import java.awt.EventQueue;
 
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import java.awt.CardLayout;
-import javax.swing.JComboBox;
-import javax.swing.DefaultComboBoxModel;
-import javax.swing.JTextField;
-import javax.swing.JButton;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
 public class TeacherManagerFram extends JFrame {
 
+	private static final long serialVersionUID = 764910992591794299L;
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTable table;
@@ -53,8 +53,8 @@ public class TeacherManagerFram extends JFrame {
 		contentPane.add(panel, "name_25808716617982");
 		panel.setLayout(null);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"\u6559\u5E08\u7F16\u53F7,\u6559\u5E08\u540D\u79F0"}));
+		JComboBox<String> comboBox = new JComboBox<>();
+		comboBox.setModel(new DefaultComboBoxModel<>(new String[] {"\u6559\u5E08\u7F16\u53F7,\u6559\u5E08\u540D\u79F0"}));
 		comboBox.setBounds(82, 10, 107, 21);
 		panel.add(comboBox);
 		

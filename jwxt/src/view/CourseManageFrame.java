@@ -1,26 +1,26 @@
 package view;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JTextField;
-import javax.swing.JComboBox;
-import javax.swing.JButton;
-import javax.swing.DefaultComboBoxModel;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.List;
-import java.awt.event.ActionEvent;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
 import javax.swing.table.DefaultTableModel;
 
-import dao.Impl.CourseDaoImpl;
+import dao.impl.CourseDaoImpl;
 import entity.Course;
 
 public class CourseManageFrame extends JFrame {
 
+	private static final long serialVersionUID = -835041426021807229L;
 	private JPanel contentPane;
 	private JTextField textField;
 	private JTable table;
@@ -62,8 +62,8 @@ public class CourseManageFrame extends JFrame {
 		contentPane.add(textField);
 		textField.setColumns(10);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"课程编号"}));
+		JComboBox<String> comboBox = new JComboBox<>();
+		comboBox.setModel(new DefaultComboBoxModel<>(new String[] {"课程编号"}));
 		comboBox.setBounds(21, 10, 93, 21);
 		contentPane.add(comboBox);
 		

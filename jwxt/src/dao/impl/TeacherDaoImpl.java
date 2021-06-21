@@ -1,10 +1,12 @@
-package dao;
+package dao.impl;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
+
+import dao.TeacherDao;
 import util.DBCPUtil;
 import java.sql.Connection;
 import java.sql.PreparedStatement;

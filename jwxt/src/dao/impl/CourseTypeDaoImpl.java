@@ -1,4 +1,4 @@
-package dao;
+package dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +10,6 @@ import java.util.List;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import dao.CourseTypeDao;
-import entity.Course;
 import entity.CourseType;
 import util.DBCPUtil;
 
@@ -20,7 +19,7 @@ public class CourseTypeDaoImpl implements CourseTypeDao {
 	private ResultSet rs = null;
 	@Override
 	/*
-	 * è·å–æ‰€æœ‰è¯¾ç¨‹ç±»å‹
+	 * »ñÈ¡ËùÓĞ¿Î³ÌÀàĞÍ
 	 */
 	public List<CourseType> FetchAllTypes() {
 		List<CourseType> courseTypeList = new ArrayList<CourseType>();
@@ -40,7 +39,7 @@ public class CourseTypeDaoImpl implements CourseTypeDao {
 
 	@Override
 	/*
-	 * æ·»åŠ è¯¾ç¨‹
+	 * Ìí¼Ó¿Î³Ì
 	 */
 	public int AddCourseType(CourseType cou) {
 		int num = 0;
