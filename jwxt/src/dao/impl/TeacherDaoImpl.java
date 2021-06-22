@@ -1,5 +1,7 @@
 ﻿package dao.impl;
 
+
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
@@ -79,7 +81,7 @@ public class TeacherDaoImpl implements TeacherDao {
 	}
 
 	@Override
-	public int updateTeacher(Teacher tea, String Id) {
+	public int updateTeacher(Teacher tea) {
 		int rows = 0;
 		try {
 			conn = DBCPUtil.getConnection();
@@ -88,7 +90,7 @@ public class TeacherDaoImpl implements TeacherDao {
 			pst.setString(1, tea.getTeacherName());
 			pst.setString(2, tea.getTeacherProfessional());
 			pst.setString(3, tea.getDeptNo());
-			pst.setString(4, Id);
+			pst.setString(4, tea.getTeacherNo());
 			rows = pst.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

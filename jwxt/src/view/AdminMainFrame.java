@@ -71,6 +71,9 @@ public class AdminMainFrame extends JFrame {
 		JButton btnNewButton = new JButton("教师管理");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
+				TeacherManagerPanel frame = new TeacherManagerPanel();
+				frame.setVisible(true);
+				splitPane.setRightComponent(frame);
 			}
 		});
 		panel.add(btnNewButton);

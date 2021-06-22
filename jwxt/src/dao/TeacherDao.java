@@ -18,7 +18,7 @@ public interface TeacherDao {
 
 	int addTeacher(Teacher tea);
 
-	int updateTeacher(Teacher tea, String Id);
+	int updateTeacher(Teacher tea);
 
 	int deleteTeacher(String tno);
 

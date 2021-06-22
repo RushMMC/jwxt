@@ -10,6 +10,14 @@ public class Teacher {
 	public Teacher() {
 	}
 	
+	public Teacher(String teacherNo, String teacherName, String teacherProfessional, String deptNo) {
+		super();
+		this.teacherNo = teacherNo;
+		this.teacherName = teacherName;
+		this.teacherProfessional = teacherProfessional;
+		this.deptNo = deptNo;
+	}
+
 	public String getTeacherNo() {
 		return teacherNo;
 	}
