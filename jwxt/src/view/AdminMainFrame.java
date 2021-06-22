@@ -79,6 +79,12 @@ public class AdminMainFrame extends JFrame {
 		panel.add(btnNewButton);
 		
 		JButton btnNewButton_1 = new JButton("课程管理");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				CourseManagerPanel panel = new CourseManagerPanel();
+				splitPane.setRightComponent(panel);
+			}
+		});
 		panel.add(btnNewButton_1);
 		
 		JButton btnNewButton_2 = new JButton("专业管理");
