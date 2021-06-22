@@ -1,11 +1,11 @@
-package dao;
+ï»¿package dao;
 
 import java.util.List;
 
 import entity.Department;
 
 /**
- * ²¿ÃÅ±íDAO²ã½Ó¿Ú
+ * éƒ¨é—¨è¡¨DAOå±‚æ¥å£
  * @author RushMMC
  * @date 2021/06/21
  *

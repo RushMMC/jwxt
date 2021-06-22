@@ -1,11 +1,11 @@
-package dao;
+ï»¿package dao;
 
 import java.util.List;
 
 import entity.StudentScore;
 
 /**
- * ³É¼¨±íDAO²ã½Ó¿Ú
+ * æˆç»©è¡¨DAOå±‚æ¥å£
  * @author lixingsheng
  * @date 2021/06/21
  *

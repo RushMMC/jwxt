@@ -1,4 +1,4 @@
-package dao.impl;
+ï»¿package dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,7 +19,7 @@ public class CourseTypeDaoImpl implements CourseTypeDao {
 	private ResultSet rs = null;
 	@Override
 	/*
-	 * »ñÈ¡ËùÓĞ¿Î³ÌÀàĞÍ
+	 * è·å–æ‰€æœ‰è¯¾ç¨‹ç±»å‹
 	 */
 	public List<CourseType> FetchAllTypes() {
 		List<CourseType> courseTypeList = new ArrayList<CourseType>();
@@ -39,7 +39,7 @@ public class CourseTypeDaoImpl implements CourseTypeDao {
 
 	@Override
 	/*
-	 * Ìí¼Ó¿Î³Ì
+	 * æ·»åŠ è¯¾ç¨‹
 	 */
 	public int AddCourseType(CourseType cou) {
 		int num = 0;

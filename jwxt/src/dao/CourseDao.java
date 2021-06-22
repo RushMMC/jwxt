@@ -1,11 +1,11 @@
-package dao;
+﻿package dao;
 
 import java.util.List;
 
 import entity.Course;
 
 /**
- * �γ̱�DAO��ӿ�
+ * 课程表DAO层接口
  * @author AndrewLiu
  * @date 2021/06/21
  *

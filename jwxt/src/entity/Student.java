@@ -1,4 +1,4 @@
-package entity;
+﻿package entity;
 
 public class Student {
 	private String stuNo;

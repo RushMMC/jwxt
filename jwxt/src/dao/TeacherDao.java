@@ -1,11 +1,11 @@
-package dao;
+ï»¿package dao;
 
 import java.util.List;
 
 import entity.Teacher;
 
 /**
- * ½ÌÊ¦±íDAO²ã½Ó¿Ú
+ * æ•™å¸ˆè¡¨DAOå±‚æ¥å£
  * @author lixingsheng
  * @date 2021/06/21
  *

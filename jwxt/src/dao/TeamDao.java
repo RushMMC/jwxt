@@ -1,11 +1,11 @@
-package dao;
+﻿package dao;
 
 import java.util.List;
 
 import entity.Team;
 
 /**
- *  ѧ�ڱ�DAO��ӿ�
+ *  学期表DAO层接口
  * @author RushMMC
  * @date 2021/06/21
  *
