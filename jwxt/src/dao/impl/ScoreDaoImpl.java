@@ -10,7 +10,7 @@ import dao.ScoreDao;
 import util.DBCPUtil;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
-import entity.StudentScore;
+import entity.Score;
 
 public class ScoreDaoImpl implements ScoreDao {
 	private Connection conn = null;
@@ -18,14 +18,16 @@ public class ScoreDaoImpl implements ScoreDao {
 	private ResultSet rs = null;
 	
 	@Override
-	public List<StudentScore> queryAllStudentScore() {
-		List<StudentScore> scorelist = null;
+	public List<Score> queryAllStudentScore() {
+		List<Score> scorelist = null;
 		try {
 			conn = DBCPUtil.getConnection();
-			String sql = "select * from shl_score";
+			String sql = "select team_no as teamNo, stu_no as stuNo, cour_no as courNo, "
+					+ "sco_peacetime as scoPeacetime, sco_team_end as scoTeamEnd, "
+					+ "sco_overall as scoOverall from shl_score";
 			pst = conn.prepareStatement(sql);
 			rs = pst.executeQuery();
-			scorelist = new BeanListHandler<>(StudentScore.class).handle(rs);
+			scorelist = new BeanListHandler<>(Score.class).handle(rs);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -35,17 +37,20 @@ public class ScoreDaoImpl implements ScoreDao {
 	}
 
 	@Override
-	public StudentScore queryStudentScoreByNo(int teamNo, String stuNo, String sourNo) {
-		StudentScore score = null;
+	public Score queryStudentScoreByNo(int teamNo, String stuNo, String sourNo) {
+		Score score = null;
 		try {
 			conn = DBCPUtil.getConnection();
-			String sql = "select * from shl_score where team_no=? and stu_no = ? and sour_no = ?";
+			String sql = "select team_no as teamNo, stu_no as stuNo, cour_no as courNo, "
+					+ "sco_peacetime as scoPeacetime, sco_team_end as scoTeamEnd, "
+					+ "sco_overall as scoOverall from shl_score "
+					+ "where team_no=? and stu_no = ? and sour_no = ?";
 			pst = conn.prepareStatement(sql);
 			pst.setInt(1, teamNo);
 			pst.setString(2, stuNo);
 			pst.setString(3, sourNo);
 			rs = pst.executeQuery();
-			score = new BeanHandler<>(StudentScore.class).handle(rs);
+			score = new BeanHandler<>(Score.class).handle(rs);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
@@ -56,7 +61,7 @@ public class ScoreDaoImpl implements ScoreDao {
 	
 
 	@Override
-	public int addStudentScore(StudentScore stuS) {
+	public int addStudentScore(Score stuS) {
 		Connection conn = null;
 		PreparedStatement pst = null;
 		int rows = 0;
@@ -81,13 +86,13 @@ public class ScoreDaoImpl implements ScoreDao {
 	}
 
 	@Override
-	public int updateStudentScore(StudentScore stuS, int teamNo, String stuNo, String sourNo) {
+	public int updateStudentScore(Score stuS, int teamNo, String stuNo, String sourNo) {
 		Connection conn = null;
 		PreparedStatement pst = null;
 		int rows = 0;
 		try {
 			conn = DBCPUtil.getConnection();
-			String sql = "UPDATE shl_score SET sco_peacetime=?,sco_team_end=?,sco_overall=? WHERE team_no=? and stu_no = ? and sour_no = ?";
+			String sql = "update shl_score SET sco_peacetime=?,sco_team_end=?,sco_overall=? WHERE team_no=? and stu_no = ? and sour_no = ?";
 			pst = conn.prepareStatement(sql);
 			pst.setInt(1, stuS.getScoPeacetime());
 			pst.setInt(2, stuS.getScoTeamEnd());
@@ -95,7 +100,6 @@ public class ScoreDaoImpl implements ScoreDao {
 			pst.setInt(4, teamNo);
 			pst.setString(5, stuNo);
 			pst.setString(6, sourNo);
-			
 			rows = pst.executeUpdate();
 		} catch (SQLException e) {
 			e.printStackTrace();

@@ -1,6 +1,6 @@
 ﻿package entity;
 
-public class StudentScore {
+public class Score {
 	private Integer teamNo;
 	private String stuNo;
 	private String courNo;
@@ -9,7 +9,7 @@ public class StudentScore {
 	private Double scoOverall;
 	
 	
-	public StudentScore() {
+	public Score() {
 	}
 
 

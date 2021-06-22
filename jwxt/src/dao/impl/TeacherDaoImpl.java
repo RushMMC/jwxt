@@ -23,7 +23,8 @@ public class TeacherDaoImpl implements TeacherDao {
 		List<Teacher> teacherlist = null;
 		try {
 			conn = DBCPUtil.getConnection();
-			String sql = "select * from shl_teacher";
+			String sql = "select tea_no as teacherNo, tea_name as teacherName, "
+					+ "tea_professional as teacherProfessional, dept_no as deptNo from shl_teacher";
 			pst = conn.prepareStatement(sql);
 			rs = pst.executeQuery();
 			teacherlist = new BeanListHandler<>(Teacher.class).handle(rs);
@@ -40,7 +41,9 @@ public class TeacherDaoImpl implements TeacherDao {
 		Teacher teacher = null;
 		try {
 			conn = DBCPUtil.getConnection();
-			String sql = "select * from shl_teacher where tea_no=?";
+			String sql = "select tea_no as teacherNo, tea_name as teacherName, "
+					+ "tea_professional as teacherProfessional, dept_no as deptNo "
+					+ "from shl_teacher where tea_no=?";
 			pst = conn.prepareStatement(sql);
 			pst.setString(1, teaNo);
 			rs = pst.executeQuery();

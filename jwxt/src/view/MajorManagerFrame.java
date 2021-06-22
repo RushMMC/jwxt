@@ -6,6 +6,7 @@ import java.util.List;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
+import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JTable;
@@ -16,14 +17,17 @@ import javax.swing.table.DefaultTableModel;
 import dao.MajorDao;
 import dao.impl.MajorDaoImpl;
 import entity.Major;
+import javax.swing.JScrollPane;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class MajorManagerFrame extends JFrame {
 
 	private static final long serialVersionUID = -2192296360817457525L;
 	private JPanel contentPane;
 	private JTextField textField;
-	private JTable table;
 	private MajorDao majorDao = new MajorDaoImpl();
+	private JTable table;
 	/**
 	 * Launch the application.
 	 */
@@ -46,6 +50,7 @@ public class MajorManagerFrame extends JFrame {
 	public MajorManagerFrame() {
 		setTitle("专业信息管理");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setLocationRelativeTo(null);
 		setBounds(100, 100, 450, 345);
 		contentPane = new JPanel();
 		contentPane.setToolTipText("");
@@ -82,19 +87,16 @@ public class MajorManagerFrame extends JFrame {
 			i++;
 		}
 		
-		table = new JTable();
-		table.setModel(new DefaultTableModel(
-			data,
-			new String[] {
-				"\u7CFB\u7F16\u53F7", "\u4E13\u4E1A\u7F16\u53F7", "\u4E13\u4E1A\u540D\u79F0"
-			}
-		));
-		table.getColumnModel().getColumn(0).setPreferredWidth(78);
-		table.getColumnModel().getColumn(2).setPreferredWidth(146);
-		table.setBounds(30, 66, 379, 174);
-		contentPane.add(table);
-		
 		JButton btnNewButton_2 = new JButton("添加");
+		btnNewButton_2.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+//				MajorAddDialog dialog = new MajorAddDialog();
+//				dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+//				dialog.setVisible(true);
+				MajorAddFrame frame = new MajorAddFrame();
+				frame.setVisible(true);
+			}
+		});
 		btnNewButton_2.setBounds(66, 261, 93, 23);
 		contentPane.add(btnNewButton_2);
 		
@@ -105,5 +107,18 @@ public class MajorManagerFrame extends JFrame {
 		JButton btnNewButton_2_2 = new JButton("删除");
 		btnNewButton_2_2.setBounds(303, 261, 93, 23);
 		contentPane.add(btnNewButton_2_2);
+		
+		JScrollPane scrollPane = new JScrollPane();
+		scrollPane.setBounds(30, 56, 379, 191);
+		contentPane.add(scrollPane);
+		
+		table = new JTable();
+		table.setModel(new DefaultTableModel(
+			data,
+			new String[] {
+				"\u4E13\u4E1A\u7F16\u53F7", "\u7CFB\u522B\u7F16\u53F7", "\u4E13\u4E1A\u540D\u79F0"
+			}
+		));
+		scrollPane.setViewportView(table);
 	}
 }

@@ -4,7 +4,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.dbutils.handlers.BeanListHandler;
@@ -17,80 +16,72 @@ public class CourseTypeDaoImpl implements CourseTypeDao {
 	private Connection conn = null;
 	private PreparedStatement pstmt = null;
 	private ResultSet rs = null;
+	
 	@Override
-	/*
-	 * 获取所有课程类型
-	 */
 	public List<CourseType> FetchAllTypes() {
-		List<CourseType> courseTypeList = new ArrayList<CourseType>();
+		List<CourseType> courseTypeList = null;
 		try {
 			conn = DBCPUtil.getConnection();
-			String sql = "select*from shl_course_type";
-			pstmt = conn.prepareStatement(sql);
-			rs = pstmt.executeQuery();
-			while (rs.next()) {
-				courseTypeList = new BeanListHandler<>(CourseType.class).handle(rs);
-			}
+			String sql = "select cty_no as ctyNo,cty_name as ctyName from shl_course_type";
+			rs=conn.createStatement().executeQuery(sql);
+			courseTypeList = new BeanListHandler<>(CourseType.class).handle(rs);
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			DBCPUtil.release(conn, pstmt, rs);
 		}
 		return courseTypeList;
 	}
 
 	@Override
-	/*
-	 * 添加课程
-	 */
-	public int AddCourseType(CourseType cou) {
-		int num = 0;
+	public boolean AddCourseType(CourseType cou) {
 		try {
 			conn = DBCPUtil.getConnection();
-			String sql = "insert into shl_course_type values(null,?)";
+			String sql = "insert into shl_course_type values(?)";
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, cou.getCtyName());
-			
-			num = pstmt.executeUpdate();
+			return pstmt.executeUpdate()>0;
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			DBCPUtil.release(conn, pstmt);
 		}
-		return num;
+		return false;
 	}
 
 	@Override
 	public boolean DeleteCourseType(int id) {
-		int num = 0;
 		try {
 			conn = DBCPUtil.getConnection();
 			String sql = "delete from shl_course_type where cty_no=?";
 
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, id);
-			num = pstmt.executeUpdate();
-
+			return pstmt.executeUpdate()>0;
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			DBCPUtil.release(conn, pstmt);
 		}
-		return num > 0;
+		return false;
 	}
 
 	@Override
 	public boolean UpdateCourseType(CourseType cou) {
-		int num = 0;
 		try {
 			conn = DBCPUtil.getConnection();
 			String sql = "update set shl_course_type "
 					     +"cty_name=? where cty_no=?";
-				
-
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, cou.getCtyName());
 			pstmt.setInt(2, cou.getCtyNo());
-			num = pstmt.executeUpdate();
-
+			return pstmt.executeUpdate()>0;
 		} catch (SQLException e) {
 			e.printStackTrace();
+		} finally {
+			DBCPUtil.release(conn, pstmt);
 		}
-		return num > 0;
+		return false;
 	}
 
 }

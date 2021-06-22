@@ -24,7 +24,9 @@ public class TeachDaoImpl implements TeachDao {
 		List<Teach> teachlist = null;
 		try {
 			conn = DBCPUtil.getConnection();
-			String sql = "select * from shl_teach";
+			String sql = "select tea_no as teaNo, team_no as teamNo, cour_no as courNo, "
+					+ "cla_no as claNo, te_lession_time as teLessionTime, "
+					+ "te_lession_addr as teLessionaddr from shl_teach";
 			pst = conn.prepareStatement(sql);
 			rs = pst.executeQuery();
 			teachlist = new BeanListHandler<>(Teach.class).handle(rs);
@@ -41,7 +43,9 @@ public class TeachDaoImpl implements TeachDao {
 		Teach teach = null;
 		try {
 			conn = DBCPUtil.getConnection();
-			String sql = "select * from shl_teach where tea_no=? and team_no=? and cour_no=? and cla_no=?";
+			String sql = "select tea_no as teaNo, team_no as teamNo, cour_no as courNo, cla_no as claNo, "
+					+ "te_lession_time as teLessionTime, te_lession_addr as teLessionaddr "
+					+ "from shl_teach where tea_no=? and team_no=? and cour_no=? and cla_no=?";
 			pst = conn.prepareStatement(sql);
 			pst.setString(1, teaNo);
 			pst.setInt(2, teamNo);

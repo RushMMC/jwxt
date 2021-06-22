@@ -2,7 +2,7 @@
 
 import java.util.List;
 
-import entity.StudentScore;
+import entity.Score;
 
 /**
  * 成绩表DAO层接口
@@ -12,13 +12,13 @@ import entity.StudentScore;
  */
 public interface ScoreDao {
 
-	List<StudentScore> queryAllStudentScore();
+	List<Score> queryAllStudentScore();
 
-	StudentScore queryStudentScoreByNo(int teamNo, String stuNo, String sourNo);
+	Score queryStudentScoreByNo(int teamNo, String stuNo, String sourNo);
 
-	int addStudentScore(StudentScore stuS);
+	int addStudentScore(Score stuS);
 
-	int updateStudentScore(StudentScore stuS, int teamNo, String stuNo, String sourNo);
+	int updateStudentScore(Score stuS, int teamNo, String stuNo, String sourNo);
 
 	int deleteStudentScore(int teamNo, String stuNo, String sourNo);
 
