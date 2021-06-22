@@ -21,4 +21,6 @@ public interface MajorDao {
 	boolean deleteMajorByMajNo(String no);
 
 	boolean updateMajor(Major major);
+
+	List<Major> queryMajorLikeMajor(Major major);
 }

@@ -44,19 +44,19 @@ public class MajorDaoImpl implements MajorDao {
 
 	@Override
 	public List<Major> queryAllMajor() {
-		List<Major> phonelist = null;
+		List<Major> list = null;
 		try {
 			conn = DBCPUtil.getConnection();
 			String sql = "select maj_no as majNo, maj_name as majName, dept_no as deptNo from shl_major";
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
-			phonelist = new BeanListHandler<>(Major.class).handle(rs);
+			list = new BeanListHandler<>(Major.class).handle(rs);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			DBCPUtil.release(conn, pstmt, rs);
 		}
-		return phonelist;
+		return list;
 	}
 
 	@Override
@@ -75,6 +75,53 @@ public class MajorDaoImpl implements MajorDao {
 			DBCPUtil.release(conn, pstmt);
 		}
 		return phone;
+	}
+	
+	@Override
+	public List<Major> queryMajorLikeMajor(Major major) {
+		List<Major> list = null;
+		try {
+			conn = DBCPUtil.getConnection();
+			String sql = "select maj_no as majNo, maj_name as majName, dept_no as deptNo from shl_major "
+					+ "where ";
+			boolean isFirst=true;
+			if(major.getDeptNo()!=null) {
+				sql+="dept_no = ? ";
+				isFirst=false;
+			}
+			if(major.getMajNo()!=null) {
+				if(!isFirst) {
+					sql+="and ";
+				}
+				sql+="maj_no = ? ";
+				isFirst=false;
+			}
+			if(major.getMajName()!=null) {
+				if(!isFirst) {
+					sql+="and ";
+				}
+				sql+="maj_name like ?";
+			}
+			pstmt = conn.prepareStatement(sql);
+			int index=1;
+			if (major.getDeptNo()!=null) {
+				pstmt.setString(index++, major.getDeptNo());
+			}
+			if(major.getMajNo()!=null) {
+				pstmt.setString(index++, major.getMajNo());
+			}
+			if(major.getMajName()!=null) {
+				pstmt.setString(index++, '%'+major.getMajName()+'%');
+			}
+			System.out.println(pstmt);
+			rs = pstmt.executeQuery();
+			list = new BeanListHandler<>(Major.class).handle(rs);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBCPUtil.release(conn, pstmt, rs);
+		}
+		return list;
 	}
 
 	@Override
