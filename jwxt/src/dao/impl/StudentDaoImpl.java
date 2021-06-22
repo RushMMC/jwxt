@@ -1,4 +1,4 @@
-﻿package dao.impl;
+package dao.impl;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -36,6 +36,7 @@ public class StudentDaoImpl implements StudentDao{
 
 	@Override
 	public int AddStudent(Student stu) {
+		int num = 0;
 		try {
 			conn = DBCPUtil.getConnection();
 			String sql = "insert into shl_student values(?,?,?,?,?)";
@@ -46,6 +47,7 @@ public class StudentDaoImpl implements StudentDao{
 			
 			pstmt.setString(4,stu.getStuBirthday());
 			pstmt.setString(5,stu.getClaNo());
+			num = pstmt.executeUpdate(sql);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
