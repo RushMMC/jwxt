@@ -87,4 +87,11 @@ public class Course {
 		this.courRemark = courRemark;
 	}
 
+	@Override
+	public String toString() {
+		return "Course [courNo=" + courNo + ", ctyNo=" + ctyNo + ", courName=" + courName + ", courCredit=" + courCredit
+				+ ", courCtime=" + courCtime + ", courOpenTeam=" + courOpenTeam + ", courIsTequire=" + courIsTequire
+				+ ", deptNo=" + deptNo + ", courRemark=" + courRemark + "]";
+	}
+
 }

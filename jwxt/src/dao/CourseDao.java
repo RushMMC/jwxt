@@ -12,6 +12,7 @@ import entity.Course;
  */
 public interface CourseDao {
     List<Course>FetchAllCourse();
+    Course FinCourseByNo(String courseNo);
     boolean AddCourse(Course cou);
     boolean DeleteCourse(int id);
     boolean UpdateCourse(Course cou); 

@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.apache.commons.dbutils.handlers.BeanHandler;
 import org.apache.commons.dbutils.handlers.BeanListHandler;
 
 import dao.CourseDao;
@@ -103,6 +104,34 @@ public class CourseDaoImpl implements CourseDao {
 			DBCPUtil.release(conn, pstmt);
 		}
 		return false;
+	}
+
+	@Override
+	public Course FinCourseByNo(String courseNo) {
+		Course course=new Course();
+		try {
+			conn = DBCPUtil.getConnection();
+			String sql = "select cour_no as courNo, cty_no as ctyNo, "
+					+ "cour_name as courName, cour_credit as courCredit, "
+					+ "cour_ctime as courCtime, cour_open_team as courOpenTeam, "
+					+ "cour_is_require as courIsTequire, dept_no as deptNo, "
+					+ "cour_remark as courRemark from shl_course where cour_no=?";
+			pstmt = conn.prepareStatement(sql);
+		
+			pstmt.setString(1, courseNo);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()) {
+				course=new BeanHandler<>(Course.class).handle(rs);
+			}
+			System.out.println(course.toString());
+			return  course;
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			DBCPUtil.release(conn, pstmt);
+		}
+		return null;
 	}
 
 }
