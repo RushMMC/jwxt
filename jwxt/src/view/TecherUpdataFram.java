@@ -1,4 +1,4 @@
-﻿package view;
+package view;
 
 import java.awt.EventQueue;
 
@@ -15,14 +15,14 @@ import entity.Teacher;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class TecherAddFram extends JFrame {
+public class TecherUpdataFram extends JFrame {
 
 	private static final long serialVersionUID = -3830563008977397844L;
 	private JPanel contentPane;
-	private JTextField textField;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
+	public JTextField textField;
+	public JTextField textField_1;
+	public JTextField textField_2;
+	public JTextField textField_3;
 
 	/**
 	 * Launch the application.
@@ -31,7 +31,7 @@ public class TecherAddFram extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					TecherAddFram frame = new TecherAddFram();
+					TecherUpdataFram frame = new TecherUpdataFram();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -43,8 +43,8 @@ public class TecherAddFram extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public TecherAddFram() {
-		setTitle("\u8001\u5E08\u6DFB\u52A0fram");
+	public TecherUpdataFram() {
+		setTitle("老师修改fram");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 600, 500);
 		contentPane = new JPanel();
@@ -57,6 +57,7 @@ public class TecherAddFram extends JFrame {
 		contentPane.add(lblNewLabel);
 		
 		textField = new JTextField();
+		textField.setEditable(false);
 		textField.setBounds(300, 61, 150, 21);
 		contentPane.add(textField);
 		textField.setColumns(10);
@@ -66,6 +67,7 @@ public class TecherAddFram extends JFrame {
 		contentPane.add(lblNewLabel_1);
 		
 		textField_1 = new JTextField();
+		textField_1.setEditable(false);
 		textField_1.setColumns(10);
 		textField_1.setBounds(300, 108, 150, 21);
 		contentPane.add(textField_1);
@@ -88,21 +90,22 @@ public class TecherAddFram extends JFrame {
 		textField_3.setBounds(300, 222, 150, 21);
 		contentPane.add(textField_3);
 		
-		JButton btnNewButton = new JButton("添加");
+		JButton btnNewButton = new JButton("修改");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 //				选择20 判断10 简答3*15从创建库使用库，ddl
 //				（create，alter，drop）,dml(insert,update,delete),dql(单表查询，子句，排序分组，),视图（创建视图）
 //				绘制er图，10，主键，外键，联系，范式分析，根据范式分解关系模型，inf 2nf,3nf
+				
 				String deptNo =  textField.getText();
 				String teaNo =  textField_1.getText();
 				String teaName =  textField_2.getText();
 				String teaProfessional =  textField_3.getText();
 				Teacher tea = new Teacher(teaNo,teaName,teaProfessional,deptNo);
 				TeacherDaoImpl teacherDao = new TeacherDaoImpl();
-				int res = teacherDao.addTeacher(tea);
+				int res = teacherDao.updateTeacher(tea);
 				if (res>0) {
-					System.out.println("添加成功！");
+					System.out.println("修改成功！");
 				} else {
 					System.out.println("添加失败！");
 				}
