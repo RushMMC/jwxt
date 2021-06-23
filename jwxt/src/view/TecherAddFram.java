@@ -44,7 +44,7 @@ public class TecherAddFram extends JFrame {
 	 * Create the frame.
 	 */
 	public TecherAddFram() {
-		setTitle("\u8001\u5E08\u6DFB\u52A0fram");
+		setTitle("添加教师");
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setLocationRelativeTo(null);
 		setSize(600, 500);

@@ -13,6 +13,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JSplitPane;
 import javax.swing.border.EmptyBorder;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.UIManager;
 
 /**
  * 
@@ -32,6 +35,8 @@ public class AdminMainFrame extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
+					String lookAndFeel = "com.sun.java.swing.plaf.windows.WindowsLookAndFeel";
+					UIManager.setLookAndFeel(lookAndFeel);  
 					AdminMainFrame frame = new AdminMainFrame();
 					frame.setVisible(true);
 				} catch (Exception e) {
@@ -98,8 +103,12 @@ public class AdminMainFrame extends JFrame {
 		
 		JPanel showPanel = new JPanel();
 		splitPane.setRightComponent(showPanel);
+		showPanel.setLayout(null);
 		
-		JLabel lblNewLabel_1 = new JLabel("New label");
+		JLabel lblNewLabel_1 = new JLabel("欢迎使用教务系统");
+		lblNewLabel_1.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel_1.setFont(new Font("华文楷体", Font.BOLD | Font.ITALIC, 45));
+		lblNewLabel_1.setBounds(0, 0, 566, 405);
 		showPanel.add(lblNewLabel_1);
 	}
 }

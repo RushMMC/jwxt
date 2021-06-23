@@ -42,7 +42,7 @@ public class TeacherManagerPanel extends JPanel {
 		add(panel_1, BorderLayout.NORTH);
 
 		JComboBox<String> comboBox = new JComboBox<String>();
-		comboBox.setModel(new DefaultComboBoxModel<>(new String[] { "教师编号" }));
+		comboBox.setModel(new DefaultComboBoxModel<>(new String[] { "请选择系别编号" }));
 		panel_1.add(comboBox);
 
 		textField = new JTextField();

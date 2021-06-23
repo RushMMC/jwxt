@@ -21,8 +21,6 @@ public class CourseManagerPanel extends JPanel {
 	private static final long serialVersionUID = 9048414670403498189L;
 	private JTextField textField;
 	private JTable table;
-	private JTable table_1;
-
 	/**
 	 * Create the panel.
 	 */
@@ -33,7 +31,7 @@ public class CourseManagerPanel extends JPanel {
 		add(panel, BorderLayout.NORTH);
 		
 		JComboBox<String> comboBox = new JComboBox<String>();
-		comboBox.setModel(new DefaultComboBoxModel(new String[] {"请选择课程类别"}));
+		comboBox.setModel(new DefaultComboBoxModel<>(new String[] {"请选择课程类别"}));
 		panel.add(comboBox);
 		
 		textField = new JTextField();
